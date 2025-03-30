@@ -145,6 +145,7 @@ pub trait Float: Sized {
     const FRACTION_BIT: Self::Payload;
     const SIGN_POS: usize;
     const EXPONENT_POS: usize;
+    const DEFAULT_NAN: Self::Payload;
 
     fn set_payload(&mut self, x: Self::Payload);
 

@@ -18,6 +18,9 @@
  * Bitwise compatible with Softfloat + passes all tests
  * Can simulate RISC-V extensions F & D
 
+For a quick benchmark vs other Rust softfloat libraries, see [softfloat_bench].
+
+[softfloat_bench]: https://github.com/HarryR/softfloat_bench/
 [RISC-V]: https://five-embeddev.com/riscv-user-isa-manual/Priv-v1.12/f.html
 [IEEE-754]: https://en.wikipedia.org/wiki/IEEE_754
 [C2Rust]: https://github.com/immunant/c2rust
@@ -54,7 +57,7 @@ You can directly access the underlying SoftFloat functions, like `f32_mulAdd` vi
 use softfloat_pure::softfloat::*;
 let a = float32_t::from_bits(0x...);
 let b = float32_t::from_bits(0x...);
-let x = f32_add(a,b, 0, 0);
+let x = f32_add(a, b, 0/*rounding_mode*/, 0/*detect_tininess*/);
 assert_eq!(x.0, 0x...); // result
 assert_eq!(x.1, 0);     // flags
 ```

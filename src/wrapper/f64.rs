@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
+use crate::softfloat::defaultNaNF64UI;
+
 use super::super::softfloat::{
     f64_add, f64_div, f64_eq, f64_eq_signaling, f64_isSignalingNaN, f64_le, f64_le_quiet, f64_lt,
     f64_lt_quiet, f64_mul, f64_mulAdd, f64_rem, f64_roundToInt, f64_sqrt, f64_sub, f64_to_f32,
@@ -30,6 +32,7 @@ impl Float for float64_t {
 
     const EXPONENT_BIT: Self::Payload = 0x7ff;
     const FRACTION_BIT: Self::Payload = 0xf_ffff_ffff_ffff;
+    const DEFAULT_NAN: Self::Payload = defaultNaNF64UI;
     const SIGN_POS: usize = 63;
     const EXPONENT_POS: usize = 52;
 
