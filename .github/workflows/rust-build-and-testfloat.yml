@@ -15,6 +15,8 @@ jobs:
 
     - name: Install Rust toolchain
       uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: wasm32-unknown-unknown
 
     - name: Cache Rust dependencies
       uses: Swatinem/rust-cache@v2
@@ -24,6 +26,9 @@ jobs:
 
     - name: Build Rust project
       run: cargo build
+
+    - name: Check no_std WebAssembly library
+      run: cargo check --lib --target wasm32-unknown-unknown
 
     - name: Run Rust tests
       run: cargo test

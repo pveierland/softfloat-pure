@@ -1,3 +1,5 @@
+#![no_std]
+
 pub mod fpu;
 pub mod softfloat;
 pub mod wrapper;
